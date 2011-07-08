@@ -1,0 +1,143 @@
+﻿/* 
+   Localizable.strings
+   SuperMetric
+
+   Created by MAC06 on 27/05/10.
+   Copyright 2010 __MyCompanyName__. All rights reserved.
+ */
+
+"Welcome" = "Bienvenidos";
+
+"Before you get started, please set up an account or sign in below." = "Antes de empezar, configure una cuenta o registrese a continuación" ;
+
+"Sign up" = "Inscríbase";
+
+"Create ScoreTones account" = "Configure una cuenta de ScoreTones";
+
+"Sign in" = "Registrese";
+
+"With ScoreTones account" = "Con una cuenta de ScoreTones";
+
+"With Facebook account" = "Con una cuenta de Facebook";
+
+"E-mail" = "Correo electronico";
+
+"Password" = "Contraseña";
+
+"Teams" = "Equipos";
+
+"Pick the teams you want to follow" = "Escoja los equipos que quiera seguir";
+
+"Group" = "Groupo ";
+
+"NEXT GAME" = "Próximo partido";
+
+"Upcoming Games" = "Próximos partidos";
+
+"LIVE NOW!" = "En vivo ahora";
+
+"Taunting" = "Burlarse";
+
+"Settings" = "Ajustes";
+
+"Games" = "Juegos";
+
+"Teams" = "Equipos";
+
+"dislike" = "Estar en contra";
+
+"like" = "Apoyar";
+
+"Game 1" = "Primer juego";
+
+"Select Friends" = "Escoja amigos";
+
+"Hit them..." = "Pegales";
+
+"Automatically add a link to my personal ScoreTones page with this." = "Anañadir un enlace a mi pagina personal de ScoreTones automáticamente aquí";
+
+"Edit" = "Corregir";
+
+"Cancel" = "Cancelar";
+
+"Save" = "Guardar";
+
+"Import from Facebook" = "Importar de Facebook";
+
+"Your message has been posted to your friends’ wall(s)" = "Su mensaje ha sido escrito en la pantalla de su amigo";
+
+"Use this link to send people to your personal ScoreTones page." = "Use este enlace para dirigir personas a su página personal de ScoreTones.";
+
+"Email link" = "Enlace de correo electrónico";
+
+"Taunt More" = "Burlarse más";
+
+"My Friends" = "Mis amigos";
+
+"Edit Friends" = "Corregir amigos";
+
+"Add more friends" = "Añadir más amigos";
+
+"Select Friends" = "Escoger amigos";
+
+"Facebook Friends" = "Amigos de Facebook";
+
+"My Friends" = "Mis amigos";
+
+"Log out from Facebook" = "Cierre la sesión";
+
+"Push Notifications" = "Promover notificaciónes";
+
+"Notify me with sound" = "Aviseme con sonido";
+
+"Email Notifications" = "Notificaciónes de correo electrónico";
+
+"Email me my taunts" = "Mandeme mis burlas";
+
+"Log Out from Facebook" = "Cierre la sesión de Facebook";
+
+"OK" = "ok";
+
+"ON/ OFF" = "on/off";
+
+"New data will be pushed to your phone from the server." = "Nueva informácion será promovida a su mobil desde el servidor";
+
+"Already have a ScoreTones account? You're all set — just sign in here." = "¿Ya tienes una cuenta con ScoreTones? Ya estás listo - registrese aquí";
+
+"Don't have a ScoreTones account yet? You can create one right here." = "¿No tienes  cuenta de ScoreTones? Abre una aquí.";
+
+"Get started by filling in your email and setting a password below." = "Empiece con su cuenta de correo electrónico y su contraseña a continuación";
+
+"Already have an account? Then log in below." = "¿Ya tienes una cuenta? Registre a continuación.";
+
+//Newly added missing strings
+
+"example@example.com" = "ejemplo@ejemplo.com";
+
+"password confirm" = "confirmar contraseña";
+
+"Password confirm" = "Confirmar contraseña";
+
+"Taunt" = "Hacerle burla";
+
+"Back" = "Regrese";
+
+"ScoreTones account" = "Cuenta de ScoreTones";
+
+"No team" = "Ningún equipo";
+
+"Log Out from ScoreTones" = "Cierre lasesión de ScoreTones";
+
+"Game 2" = "Partido 2";
+
+"Could not connect to the internet" = "No se pudo establecer conexión con la red";
+
+"You must connect to Wi-Fi or cellular data network to access this feature." = "Se requiere conexión Wi-Fi o a una red de datos por celular para tener acceso a esta aplicación";
+
+"Log out from ScoreTones" = "Salir de la aplicación ScoreTones";
+
+"VS." = ":";
+
+"team" = "equipo";
+
+"Please select a friend to taunt." = "Escoja amigos para burlarse de ellos.";

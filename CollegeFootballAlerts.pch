@@ -1,0 +1,117 @@
+//
+// Prefix header for all source files of the 'SuperMetric' target in the 'SuperMetric' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+
+BOOL isStartUpSoundOn;
+BOOL signInByUserName; 
+BOOL notifyWithSoundButton;
+
+//#define APP_NAME					@"ACC"
+#define IF_RETURN_USER				@"IF_RETURN_USER"
+
+// production 
+#define kApplicationKey				@"u9s_SxMlSI-fC423wRT8hg"             //@"YOUR APP KEY"
+#define kApplicationSecret			@"dtwLgDd9S5ucPPH-dXKFaw"             //@"YOUR APP SECRET"
+
+// development 
+//#define kApplicationKey				@"3_XPSxe1TBqyfmdfiQFdxA"             //@"YOUR APP KEY"
+//#define kApplicationSecret			@"hCXlnj_MQ5eqK1rK_RlJqw"             //@"YOUR APP SECRET"
+      
+#define TAG_APPEND_					@"EN"
+
+#define FB_FRIENDS_UID				@"FB_FRINEDS_UID"
+#define FB_FRIEND_IS_SELECTED		@"FB_IS_FRIEND_SELECTED"
+#define FB_FRIENDS_NAME				@"FB_FRIENDS_NAME"
+#define FB_FRIENDS_LIKES_COUNTRY	@"FB_FRIENDS_LIKES_COUNTRY"
+
+#define ADDED_FB_FRIEND				@"ADDED_FB_FRIEND"
+#define DELETED_FB_FRIEND			@"DELETED_FB_FRIEND"
+#define DOWNLOADED_TEAMS_DATA		@"DOWNLOADED_TEAMS_DATA"
+#define DOWNLOADED_STANDINGS_DATA   @"DOWNLOADED_STANDINGS_DATA"
+#define SEND_TAUNT_MESSAGE			@"SEND_TAUNT_MESSAGE"
+
+#pragma mark -
+#pragma mark Team Information
+#define TEAM_ID						@"TeamID"
+#define GROUP						@"Group"
+#define SUBDIVISIONS				@"subDivisions"
+#define NAME_EN						@"nameEN"
+#define NAME_ABR					@"abbr"
+#define TEAM_STATUS					@"teamStatus"
+
+#define APP_DELEGATE_HEADER			"SuperMetricAppDelegate.h"
+#define APP_DELEGATE				SuperMetricAppDelegate
+
+#pragma mark -
+#pragma mark 
+#define BACKGROUND_MUSIC_VOLUME		0.5f
+#define SFX_VOLUME					0.75f
+
+#pragma mark -
+#pragma mark FaceBook Settings
+#define FB_APPLICATION_KEY	@"29fe4669e7946dd7b88a8d5470a60261"
+#define FB_SECRET_KEY		@"3facfdb12fff2d0f8ad73aa4ddb65264"
+
+#pragma mark -
+#pragma mark Notifications
+#define INITAL_LOGIN					@"INITAL_LOGIN"
+#define IS_CONFERENCE_SELECTED			@"IS_CONFERENCE_SELECTED"
+#define FRIENDS_COUNTRY_SELECTED		@"FRIENDS_COUNTRY_SELECTED"
+#define LOGIN_NOTIFICATION				@"LOGIN_NOTIFICATION"
+#define LOGIN_TYPE						@"LOGIN_TYPE"
+#define LOGIN_STATUS					@"LOGIN_STATUS"
+#define LOGIN_ID						@"LOGIN_ID"
+#define APP_LAUNCH_COUNT                @"APP_LAUNCH_COUNT"
+#define NO_OF_LOGIN                     @"noOFLogin"
+
+#define DAILY_BASIS_FBLINK              @"http://apps.facebook.com/dailyballs/"
+
+#pragma mark -
+#pragma mark URLs
+
+
+
+#define GET_USERID_WITH_USERNAME        @"http://cfb.scoretones.com/index.php/users_api/user/username/%@"
+#define GET_USERID_WITH_EMAIL_ID        @"http://cfb.scoretones.com/index.php/users_api/user/email/%@"
+
+#define STORE_TAUNT_TO_DB				@"http://cfb.scoretones.com/index.php/users_api/taunt"
+
+#define ALL_TEAMS_URL					@"http://cfb.scoretones.com/index.php/teams_api/conference_teams/confid/%@"
+#define ALL_CONFERENCE_TEAMS            @"http://cfb.scoretones.com/index.php/teams_api/teams"
+
+#define STANDINGS_PER_CONFERENCE        @"http://cfb.scoretones.com/index.php/teams_api/conference_standings/confid/%@"
+
+#define FOLLOW_GAMES_EMAIL				@"http://cfb.scoretones.com/index.php/games_api/conference_games/confID/%@"
+#define FOLLOW_GAMES_FB					@"http://cfb.scoretones.com/index.php/games_api/conference_games/confID/%@"
+
+// Sigin in into ST 											
+#define SIGNUP_URL                      @"http://cfb.scoretones.com/index.php/users_api/add_user/username/%@/email/%@/password/%@/signin/1"
+#define SIGNIN_EMAIL_URL				@"http://cfb.scoretones.com/index.php/users_api/verify_user/email/%@/password/%@"
+#define SIGNIN_USERNAME_URL				@"http://cfb.scoretones.com/index.php/users_api/verify_user/username/%@/password/%@"
+
+#define FB_SIGN_IN						@"http://cfb.scoretones.com/index.php/users_api/add_fb_user/facebook/%@/password/%@/signin/1"
+
+#define ADD_DEVICE_TOKEN				@"http://api.scoretones.com/index.php/users_api/add_devices/deviceid/%@"
+
+#define ADD_DEVICE_BY_EMAIL				@"http://cfb.scoretones.com/index.php/users_api/add_device/email/%@/deviceid/%@/confID/%@"
+#define ADD_DEVICE_BY_FB				@"http://cfb.scoretones.com/index.php/users_api/add_device/facebook/%@/deviceid/%@/confID/%@"
+
+#define ADD_FOLLOW_STATUS_EMAIL         @"http://cfb.scoretones.com/index.php/users_api/add_follow/email/%@/teamid/%d/follow/%@"
+#define ADD_FOLLOW_STATUS_FB            @"http://cfb.scoretones.com/index.php/users_api/add_follow/facebook/%@/teamid/%d/follow/%@"
+
+#define GAMES_BY_USER_AND_CONFERENCE_BY_MAIL	@"http://cfb.scoretones.com/index.php/games_api/conference_games_by_user/email/%@/confID/%@"
+#define GAMES_BY_USER_AND_CONFERENCE_BY_FB		@"http://cfb.scoretones.com/index.php/games_api/conference_games_by_user/facebook/%@/confID/%@"
+
+#define KeyboardMoveAnimationDuration		0.3f
+
+#pragma mark ConferenceData
+
+#define CONFERENCE_ID @"3211"
+#define SUBDIVISIONS1 @"Atlantic"
+#define SUBDIVISIONS2 @"Coastal"
+
+#endif
