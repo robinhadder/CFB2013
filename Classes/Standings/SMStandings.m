@@ -98,8 +98,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	NSArray * array = [allGroups allKeys];
-	NSLog(@"NO OF ROWS IN SECTION #%d : %d", section, [[allGroups objectForKey:[array objectAtIndex:section]] count]);	
-	return [[allGroups objectForKey:[array objectAtIndex:section]] count];
+    NSArray* reversedArray = [[array reverseObjectEnumerator] allObjects];
+	NSLog(@"NO OF ROWS IN SECTION #%d : %d", section, [[allGroups objectForKey:[reversedArray objectAtIndex:section]] count]);	
+	return [[allGroups objectForKey:[reversedArray objectAtIndex:section]] count];
 }
 
 
@@ -114,7 +115,7 @@
 	}
 	SMTeamsInfo * teamInfo;
 		NSMutableArray * teamsInGroup = [allGroups objectForKey:[allKeys objectAtIndex:indexPath.section]];
-	    NSLog(@"TEAMS IN GROUP %@ :: %d", teamsInGroup, indexPath.row);
+	    NSLog(@"TEAMS IN GROUP OF SECTION %d %@ :: %d", indexPath.section, teamsInGroup, indexPath.row);
 		teamInfo = [teamsInGroup objectAtIndex:indexPath.row];
 
 	[[cell teamName] setText:[teamInfo nameEN]];
