@@ -654,7 +654,7 @@ static BOOL isiPhoneOS2;
 		// (credentials for Digest and NTLM will always be stored like this)
 		if ([credentials objectForKey:@"Authentication"]) {
 			
-			// If we've already talked to this server and have valid credentials, let's apply them to the request
+//@property (nonatomic, 've already talked to this server and have valid credentials, let's apply them to the request
 			if (!CFHTTPMessageApplyCredentialDictionary(request, (CFHTTPAuthenticationRef)[credentials objectForKey:@"Authentication"], (CFDictionaryRef)[credentials objectForKey:@"Credentials"], NULL)) {
 				[[self class] removeAuthenticationCredentialsFromSessionStore:[credentials objectForKey:@"Credentials"]];
 			}
@@ -2569,7 +2569,7 @@ static BOOL isiPhoneOS2;
 		} else if ([self isResponseCompressed]) {
 			int decompressionStatus = [ASIHTTPRequest uncompressZippedDataFromFile:[self temporaryFileDownloadPath] toFile:[self downloadDestinationPath]];
 			if (decompressionStatus != Z_OK) {
-				fileError = [NSError errorWithDomain:NetworkRequestErrorDomain code:ASIFileManagementError userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Decompression of %@ failed with code %hi",[self temporaryFileDownloadPath],decompressionStatus],NSLocalizedDescriptionKey,nil]];
+				fileError = [NSError errorWithDomain:NetworkRequestErrorDomain code:ASIFileManagementError userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Decompression of %@ failed with code %i",[self temporaryFileDownloadPath],decompressionStatus],NSLocalizedDescriptionKey,nil]];
 			}
 			[self removeTemporaryDownloadFile];
 		} else {

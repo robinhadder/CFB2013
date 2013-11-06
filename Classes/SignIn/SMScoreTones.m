@@ -9,11 +9,11 @@
 #import "SMScoreTones.h"
 #import "SMUserData.h"
 #import "NetworkCheck.h"
+#import "SuperMetricViewController.h"
 
 @implementation SMScoreTones
 
 @synthesize tableView;
-
 /*
  - (id)initWithStyle:(UITableViewStyle)style {
  // Override initWithStyle: if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -36,16 +36,16 @@
 	[tableView setBackgroundColor:[UIColor clearColor]];
 	
 	contentArray1 = [[NSArray arrayWithObjects:@"Create ScoreTones account", nil] retain];
-	contentArray2 = [[NSArray arrayWithObjects:@"With ScoreTones account",@"With Facebook account", nil] retain];
+	contentArray2 = [[NSArray arrayWithObjects:@"With Facebook account", nil] retain];
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  //  self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    //  self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 
-- (void) setAppNameWithCurrentSelectedConf:(NSNotification *)notification {	 
+- (void) setAppNameWithCurrentSelectedConf:(NSNotification *)notification {
 	self.navigationItem.title = [[ConfigureApp sharedConfig] conferenceName];                        // set app name according to the conference selected.
-	//self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"LAST_SELECTED_CONFERENCE"]; 
+	//self.navigationItem.title = [[NSUserDefaults standardUserDefaults] objectForKey:@"LAST_SELECTED_CONFERENCE"];
 }
 
 /*
@@ -93,18 +93,15 @@
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     int returnValue = 0;
-	
-	if(section == 0)
-		returnValue = [contentArray1 count];
-	else if(section == 1) 
-		returnValue = [contentArray2 count];
+    
+    returnValue = [contentArray2 count];
 	
 	return returnValue;
 	
@@ -119,14 +116,12 @@
 	
 	if(cell == nil) {
 		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-	}	
+	}
 	
-	if(indexPath.section == 0){
-		cell.textLabel.text = NSLocalizedString([contentArray1 objectAtIndex:indexPath.row],@"Create ScoreTones account");
-	}
-	else{
-		cell.textLabel.text = NSLocalizedString([contentArray2 objectAtIndex:indexPath.row],@"ScoreTones");
-	}
+    
+    
+    cell.textLabel.text = NSLocalizedString([contentArray2 objectAtIndex:indexPath.row],@"ScoreTones");
+	
 	
 	cell.accessoryType= UITableViewCellAccessoryDisclosureIndicator;
 	cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:17];
@@ -137,32 +132,23 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	SMSignIn * nextController = nil;
-	SMSignUp * signupController = nil;
 	
 	if( [[NetworkCheck sharedInstance] isNetworkAvailable] == NO) {
 		return;
 	}
 	
-	switch ([indexPath section] ){
-		case 1:
-			if( [indexPath row] == 0 ){
-				nextController = [[SMSignIn alloc] initWithNibName:@"SMSignIn" bundle:[NSBundle mainBundle]];
-				[self.navigationController pushViewController:nextController animated:YES];
-				[nextController release];
-			}
-			else {
-				[[SMUserData sharedInstance] loginIntoFaceBook];
-			}
-
-			break;
-			
-		case 0:
-			signupController = [[SMSignUp alloc] initWithNibName:@"SMSignUp" bundle:[NSBundle mainBundle]];
-			[self.navigationController pushViewController:signupController animated:YES];
-			[signupController release];
-			break;
-	} 
+    if(indexPath.row == 0) {
+        [[SMUserData sharedInstance] loginIntoFaceBook];
+    } else {
+        
+       	NSMutableDictionary * loginDict = [[NSMutableDictionary alloc] init];
+        [loginDict setObject:[NSNumber numberWithBool:YES] forKey:LOGIN_STATUS];
+        [loginDict setObject:[NSNumber numberWithInt:kScoretoneGuest] forKey:LOGIN_TYPE];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:LOGIN_NOTIFICATION object:loginDict];
+        [loginDict release];
+        
+    }
 	
 	
 }
@@ -184,10 +170,10 @@
  if (editingStyle == UITableViewCellEditingStyleDelete) {
  // Delete the row from the data source
  [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
- }   
+ }
  else if (editingStyle == UITableViewCellEditingStyleInsert) {
  // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }   
+ }
  }
  */
 

@@ -136,7 +136,7 @@
 	UIImageView *imageView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"SectionalHeader.png"]] autorelease];
 	UILabel *label = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0,tableView.bounds.size.width, 30)] autorelease];
 	label.text = @"Schedule";
-	[label setTextAlignment:UITextAlignmentCenter];
+	[label setTextAlignment:NSTextAlignmentCenter];
 	label.textColor = [UIColor whiteColor];
 	[label setBackgroundColor:[UIColor clearColor]];
 	[headerView addSubview:imageView];

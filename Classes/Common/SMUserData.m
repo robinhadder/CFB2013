@@ -410,7 +410,7 @@ UIAlertView * alertView = nil;
 - (void)request:(FBRequest*)request didLoad:(id)result {	
 	if( receivedFriendsUID == NULL ) {
 		receivedFriendsUID = [[NSMutableArray alloc] initWithArray:result];
-		NSString * inuid = [NSString stringWithString:@""];
+		NSString * inuid = @"";
 		
 		for( NSDictionary * str in receivedFriendsUID ) {
 			inuid = [inuid stringByAppendingFormat:@"%@,",[str objectForKey:@"uid"]];

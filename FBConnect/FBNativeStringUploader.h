@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#import "FBConnect/FBRequest.h"
+#import "FBRequest.h"
 
 NSString* FBLocalizedString(NSString *key, NSString *comment);
 

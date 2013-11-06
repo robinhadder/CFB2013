@@ -14,8 +14,8 @@ BOOL notifyWithSoundButton;
 #define IF_RETURN_USER				@"IF_RETURN_USER"
 
 // production 
-#define kApplicationKey				@"u9s_SxMlSI-fC423wRT8hg"             //@"YOUR APP KEY"
-#define kApplicationSecret			@"dtwLgDd9S5ucPPH-dXKFaw"             //@"YOUR APP SECRET"
+#define kApplicationKey				@"j-sy-g6pTbSpNJvbMD5DKw"             //@"YOUR APP KEY"
+#define kApplicationSecret			@"5bzX-LSFRwGuUP8ITWiqPw"             //@"YOUR APP SECRET"
 
 // development 
 //#define kApplicationKey				@"3_XPSxe1TBqyfmdfiQFdxA"             //@"YOUR APP KEY"
@@ -53,8 +53,8 @@ BOOL notifyWithSoundButton;
 
 #pragma mark -
 #pragma mark FaceBook Settings
-#define FB_APPLICATION_KEY	@"29fe4669e7946dd7b88a8d5470a60261"
-#define FB_SECRET_KEY		@"3facfdb12fff2d0f8ad73aa4ddb65264"
+#define FB_APPLICATION_KEY	@"174840492695816"
+#define FB_SECRET_KEY		@"c33ccb3a157270227b1c95e14a709d8e"
 
 #pragma mark -
 #pragma mark Notifications

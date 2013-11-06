@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#import "FBConnect/FBNativeStringUploader.h"
-#import "FBConnect/FBUploadResultReceiver.h"
+#import "FBNativeStringUploader.h"
+#import "FBUploadResultReceiver.h"
 
 @implementation FBNativeStringUploader
 

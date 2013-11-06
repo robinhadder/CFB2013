@@ -67,15 +67,6 @@ UIAlertView * signInAlert;
 	return tabBarController;
 }
 
-- (void) tauntFriendsWithTaunt:(NSString *)tauntMessage; {
-	if( tabBarController != nil ) {
-		if( [tabBarController selectedIndex] != 2 ) {
-			[tabBarController setSelectedIndex:2];
-			[tabBarController showTauntMessage:tauntMessage];
-		}
-	}
-}
-
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -108,13 +99,13 @@ UIAlertView * signInAlert;
 				[[NSUserDefaults standardUserDefaults] setObject:[[SMUserData sharedInstance] uid] forKey:LOGIN_ID];
 				[[SMUserData sharedInstance] addFacebookUser:[[SMUserData sharedInstance] uid]];
 				//confID = [[ConfigureApp sharedConfig]conferenceID];				
-				addDeviceURL = [NSString stringWithString:ADD_DEVICE_BY_FB];
+				addDeviceURL = ADD_DEVICE_BY_FB;
 				break;
 				
 			case kScoretoneLogin:
 				[[NSUserDefaults standardUserDefaults] setObject:[[SMUserData sharedInstance] getScoreTonesEmail] forKey:LOGIN_ID];
 				//confID = [[ConfigureApp sharedConfig]conferenceID];
-				addDeviceURL = [NSString stringWithString:ADD_DEVICE_BY_EMAIL];
+				addDeviceURL = ADD_DEVICE_BY_EMAIL;
 				break;
 		}
 		

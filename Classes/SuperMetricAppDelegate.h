@@ -16,7 +16,7 @@
 	SuperMetricViewController *viewController;
 	UIWindow *window;
 	NSString *deviceToken;
-	NSString * tauntMessage;
+//	NSString * tauntMessage;
 	NSOperationQueue *operationQueue;          // for managing multiple request in a queue
 
 	SoundManager * soundManager;
@@ -26,7 +26,7 @@
 @property (nonatomic, retain) IBOutlet SuperMetricViewController *viewController;
 @property (nonatomic, retain) NSString *deviceToken;
 
--(void) showReviewPopUpMessage;
+//-(void) showReviewPopUpMessage;
 
 /**
  *	Method: addTagsAction

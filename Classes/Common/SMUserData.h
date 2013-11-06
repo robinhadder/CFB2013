@@ -14,7 +14,8 @@
 typedef enum {
 	kNoLogin = 0,
 	kFacebookLogin,
-	kScoretoneLogin
+	kScoretoneLogin,
+    kScoretoneGuest
 } LoginType;
 
 @interface SMUserData : NSObject <FBSessionDelegate,FBDialogDelegate, FBRequestDelegate> {

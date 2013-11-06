@@ -73,7 +73,7 @@ NSLock *dialogLock = nil;
 	[label setShadowOffset:CGSizeMake(0, 1.0)];
 	[label setOpaque:NO];
 	[label setBackgroundColor:nil];
-	[label setTextAlignment:UITextAlignmentCenter];
+	[label setTextAlignment:NSTextAlignmentCenter];
 	
 	[titleBar addSubview:label];
 	[[self loginDialog] addSubview:titleBar];
@@ -97,7 +97,7 @@ NSLock *dialogLock = nil;
 	[label setShadowOffset:CGSizeMake(0, -1.0)];
 	[label setOpaque:NO];
 	[label setBackgroundColor:nil];
-	[label setTextAlignment:UITextAlignmentCenter];
+	[label setTextAlignment:NSTextAlignmentCenter];
 	
 	[toolbar addSubview:label];
 

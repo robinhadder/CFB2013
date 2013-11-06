@@ -13,7 +13,6 @@
 
 @synthesize teamsScreen;
 @synthesize gamesScreen;
-@synthesize tauntScreen;
 @synthesize settings;
 @synthesize standings;
 
@@ -46,7 +45,6 @@
 
 	[teamsTabBarItem    initWithTitle:@"Schedule" image:[UIImage imageNamed:@"TabBar_schedule.png"] tag:1];
 	[gamesTabBarItem    initWithTitle:@"Standings" image:[UIImage imageNamed:@"TabBar_standings.png"] tag:2];
-	[tauntsTabBarItem   initWithTitle:@"Taunt" image:[UIImage imageNamed:@"TabBar_Taunt.png"] tag:3];
 	[settingsTabBarItem initWithTitle:@"Settings" image:[UIImage imageNamed:@"TabBar_Settings.png"] tag:4];
 		
 }
@@ -72,17 +70,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void) showTauntMessage:(NSString *)tauntMessage {
-	if( tauntScreen != nil && tauntMessage != nil ) {
-		[self performSelector:@selector(showMessage:) withObject:tauntMessage afterDelay:1.0f];
-	}
-}
-
-- (void) showMessage:(NSString *)message {
-	if( message != nil ) {
-		[[tauntScreen tauntTextView] setText:message];
-	}
-}
 
 
 - (void)dealloc {
@@ -100,12 +87,6 @@
 		[gamesScreen release];
 	}
 	
-	if( tauntScreen != nil ) {
-		if( [tauntScreen.view superview] != nil ) {
-			[tauntScreen.view removeFromSuperview];
-		}
-		[tauntScreen release];
-	}
 	
 	if( settings != nil ) {
 		if( [settings.view superview] != nil ) {

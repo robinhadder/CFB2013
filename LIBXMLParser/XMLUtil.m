@@ -22,7 +22,7 @@
 		xmlXPathFreeContext(xpathCtx); 
 		if(xpathObj == NULL) {
 			//CNSLog(NSLog(@"Error: unable to evaluate xpath expression \"%s\"\n", in_xpath));
-			NSLog(@"Error: unable to evaluate xpath expression \"%s\"\n", in_xpath);
+			NSLog(@"Error: unable to evaluate xpath expression \"%@\"\n", in_xpath);
 		} else {
 			return [[XMLXpathObject alloc] initWithXpath:xpathObj];
 		}

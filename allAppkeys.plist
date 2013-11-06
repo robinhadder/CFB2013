@@ -46,17 +46,6 @@
 		<key>CONFERENCE_ID</key>
 		<string>3211</string>
 	</dict>
-	<key>WAC</key>
-	<dict>
-		<key>CONFERENCE_NAME</key>
-		<string>wac</string>
-		<key>SUBDIVISION1</key>
-		<string>noSubDiv</string>
-		<key>SUBDIVISION2</key>
-		<string>noSubDiv</string>
-		<key>CONFERENCE_ID</key>
-		<string>3222</string>
-	</dict>
 	<key>SunBelt</key>
 	<dict>
 		<key>CONFERENCE_NAME</key>

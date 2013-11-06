@@ -65,11 +65,11 @@ TeamStatus oldStatus;
 	NSString * followStatusURLString = nil;
 	switch ( loginType ) {
 		case kFacebookLogin:
-			followStatusURLString = [NSString stringWithString:ADD_FOLLOW_STATUS_FB];
+			followStatusURLString = ADD_FOLLOW_STATUS_FB;
 			break;
 			
 		case kScoretoneLogin:
-			followStatusURLString = [NSString stringWithString:ADD_FOLLOW_STATUS_EMAIL];
+			followStatusURLString = ADD_FOLLOW_STATUS_EMAIL;
 			break;
 	}
 	followStatusURLString = [NSString stringWithFormat:followStatusURLString,loginID,teamID,@"1"];
@@ -96,11 +96,11 @@ TeamStatus oldStatus;
 	NSString * followStatusURLString = nil;
 	switch ( loginType ) {
 		case kFacebookLogin:
-			followStatusURLString = [NSString stringWithString:ADD_FOLLOW_STATUS_FB];
+			followStatusURLString = ADD_FOLLOW_STATUS_FB;
 			break;
 			
 		case kScoretoneLogin:
-			followStatusURLString = [NSString stringWithString:ADD_FOLLOW_STATUS_EMAIL];
+			followStatusURLString = ADD_FOLLOW_STATUS_EMAIL;
 			break;
 	}
 	int prevTeam = [[NSUserDefaults standardUserDefaults] integerForKey:@"prevTeamID"];
@@ -187,11 +187,11 @@ TeamStatus oldStatus;
 	NSString * followStatusURLString = nil;
 	switch ( loginType ) {
 		case kFacebookLogin:
-			followStatusURLString = [NSString stringWithString:ADD_FOLLOW_STATUS_FB];
+			followStatusURLString = ADD_FOLLOW_STATUS_FB;
 			break;
 			
 		case kScoretoneLogin:
-			followStatusURLString = [NSString stringWithString:ADD_FOLLOW_STATUS_EMAIL];
+			followStatusURLString = ADD_FOLLOW_STATUS_EMAIL;
 			break;
 	}
 	

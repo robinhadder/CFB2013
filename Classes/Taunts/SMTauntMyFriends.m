@@ -37,7 +37,7 @@
 	label.backgroundColor = [UIColor clearColor];
 	label.font = [UIFont boldSystemFontOfSize:20.0];
 	label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-	label.textAlignment = UITextAlignmentCenter;
+	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor yellowColor];
 	self.navigationItem.titleView = label;
 	label.text = NSLocalizedString(@"Taunt",@"Taunt");
@@ -150,7 +150,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView1 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSLog(@"index path:%d",indexPath);
+	NSLog(@"index path:%@",indexPath);
 	if( [indexPath section] == 1 ){
 		addressBook = [[SMAddressBook alloc] initWithNibName:@"SMAddressBook" bundle:[NSBundle mainBundle]];
 		[[self navigationController] pushViewController:addressBook animated:YES];
@@ -459,10 +459,10 @@
 	NSString * getUserIDURLString = nil;
 	isUserIDURL = TRUE;
 	if (signInByUserName == TRUE) {
-		getUserIDURLString = [NSString stringWithString:GET_USERID_WITH_USERNAME];
+		getUserIDURLString = GET_USERID_WITH_USERNAME;
 	}
 	else{
-		getUserIDURLString = [NSString stringWithString:GET_USERID_WITH_EMAIL_ID];
+		getUserIDURLString = GET_USERID_WITH_EMAIL_ID;
 	}
 	
 	NSString * userLoginType = [[NSUserDefaults standardUserDefaults] objectForKey:LOGIN_ID];

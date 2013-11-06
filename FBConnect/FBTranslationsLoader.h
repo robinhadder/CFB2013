@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-#import "FBConnect/FBConnectGlobal.h"
-#import "FBConnect/FBRequest.h"
+#import "FBConnectGlobal.h"
+#import "FBRequest.h"
 
 NSString* FBLocalizedString(NSString *key, NSString *comment);
 

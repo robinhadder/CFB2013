@@ -29,14 +29,14 @@
 	label.backgroundColor = [UIColor clearColor];
 	label.font = [UIFont boldSystemFontOfSize:20.0];
 	label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-	label.textAlignment = UITextAlignmentCenter;
+	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor yellowColor];
 	self.navigationItem.titleView = label;
 	label.text = NSLocalizedString(@"My Conference",@"My Conference");
 	[self setTitle:NSLocalizedString(@"My Conference",@"My Conference")];
 	
-	myConferences = [[NSMutableArray alloc]initWithObjects:@"ACC",@"Big 12",@"Big East",@"Big Ten",@"Conf USA",@"Independents",@"Ivy League",@"MAC",@"Mountain West",@"PAC 12",@"SunBelt",@"SEC",@"WAC",nil];
-	currentConferences = [[NSMutableArray alloc]initWithObjects:@"acc",@"big12",@"bige",@"big10",@"cusa",@"indy",@"ivy",@"mac",@"mwest",@"pac12",@"sbelt",@"sec",@"wac",nil];
+	myConferences = [[NSMutableArray alloc]initWithObjects:@"ACC",@"Big 12",@"Big East",@"Big Ten",@"Conf USA",@"Independents",@"Ivy League",@"MAC",@"Mountain West",@"PAC 12",@"SunBelt",@"SEC",nil];
+	currentConferences = [[NSMutableArray alloc]initWithObjects:@"acc",@"big12",@"bige",@"big10",@"cusa",@"indy",@"ivy",@"mac",@"mwest",@"pac12",@"sbelt",@"sec",nil];
 }
 
 #pragma mark -

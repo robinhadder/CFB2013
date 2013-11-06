@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "FBConnect/FBTranslationsLoader.h"
+#import "FBTranslationsLoader.h"
 
 NSMutableDictionary* _strings = nil;
 NSArray* _identicalLocales = nil;

@@ -31,18 +31,18 @@ static NSString *requestURL = @"https://go.urbanairship.com/api/device_tokens/";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeTagsFromUA:) name:@"REMOVE_TAGS" object:nil];
 	
 	// Uncomment the below code for olaf's wishlist 2i.e forshowing a pop up when theapp is a launched for the 10th time   
-	if( [[NSUserDefaults standardUserDefaults] integerForKey:NO_OF_LOGIN] == 0 ){
-		[[NSUserDefaults standardUserDefaults ] setInteger:1 forKey:NO_OF_LOGIN];
-	}
-	else{
-		int updatedCount = [[NSUserDefaults standardUserDefaults] integerForKey:NO_OF_LOGIN];
-		updatedCount++;
-		[[NSUserDefaults standardUserDefaults ] setInteger:updatedCount forKey:NO_OF_LOGIN];
-	}
-	
-	if ([[NSUserDefaults standardUserDefaults] integerForKey:NO_OF_LOGIN] == 10) {
-		[self showReviewPopUpMessage];
-	}
+//	if( [[NSUserDefaults standardUserDefaults] integerForKey:NO_OF_LOGIN] == 0 ){
+//		[[NSUserDefaults standardUserDefaults ] setInteger:1 forKey:NO_OF_LOGIN];
+//	}
+//	else{
+//		int updatedCount = [[NSUserDefaults standardUserDefaults] integerForKey:NO_OF_LOGIN];
+//		updatedCount++;
+//		[[NSUserDefaults standardUserDefaults ] setInteger:updatedCount forKey:NO_OF_LOGIN];
+//	}
+//	
+//	if ([[NSUserDefaults standardUserDefaults] integerForKey:NO_OF_LOGIN] == 10) {
+//		[self showReviewPopUpMessage];
+//	}
 	
 	//BOOL isStartUpSoundOn;
 	if([[NSUserDefaults standardUserDefaults] objectForKey:@"keyisStartUpSoundOn"] != nil) {
@@ -66,12 +66,12 @@ static NSString *requestURL = @"https://go.urbanairship.com/api/device_tokens/";
     [window makeKeyAndVisible];
 }
 
--(void) showReviewPopUpMessage{
-
-	UIAlertView * reviewAlert = [[UIAlertView alloc]initWithTitle:@"Review App" message:@"Please take a minute and review this app." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil ];
-	[reviewAlert show];
-	[reviewAlert release];
-}
+//-(void) showReviewPopUpMessage{
+//
+//	UIAlertView * reviewAlert = [[UIAlertView alloc]initWithTitle:@"Review App" message:@"Please take a minute and review this app." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil ];
+//	[reviewAlert show];
+//	[reviewAlert release];
+//}
 
 - (void) applicationWillTerminate:(UIApplication *)application {
 }
@@ -114,19 +114,19 @@ static NSString *requestURL = @"https://go.urbanairship.com/api/device_tokens/";
 	NSString * soundFile = [tempDictionary objectForKey:@"sound"];
 	[soundManager playSound:soundFile delay:0.1f];
 	
-	NSString * alertMsg = [tempDictionary objectForKey:@"alert"];
-	
-	if( tauntMessage != nil )
-		[tauntMessage release];
-	
-	
-	tauntMessage = [[NSString alloc] initWithString:[tempDictionary objectForKey:@"taunt"]];
-	 
-	
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ScoreTones" message:alertMsg delegate:self cancelButtonTitle:NSLocalizedString(@"Taunt",@"Taunt") otherButtonTitles:NSLocalizedString(@"Cancel",@"Cancel"),nil];
-    [alert show];
-    [alert release];
-    
+//	NSString * alertMsg = [tempDictionary objectForKey:@"alert"];
+//	
+//	if( tauntMessage != nil )
+//		[tauntMessage release];
+//	
+//	
+//	tauntMessage = [[NSString alloc] initWithString:[tempDictionary objectForKey:@"taunt"]];
+//	 
+//	
+//	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ScoreTones" message:alertMsg delegate:self cancelButtonTitle:NSLocalizedString(@"Taunt",@"Taunt") otherButtonTitles:NSLocalizedString(@"Cancel",@"Cancel"),nil];
+//    [alert show];
+//    [alert release];
+//    
 }
 
 - (void) removeTagsFromUA:(NSNotification *)notification {
@@ -235,11 +235,11 @@ static NSString *requestURL = @"https://go.urbanairship.com/api/device_tokens/";
 	}	
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-	if( buttonIndex == 0 && tauntMessage != nil) {
-		[viewController tauntFriendsWithTaunt:tauntMessage];
-	}
-}
+//- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
+//	if( buttonIndex == 0 && tauntMessage != nil) {
+//		[viewController tauntFriendsWithTaunt:tauntMessage];
+//	}
+//}
 /*
 
 

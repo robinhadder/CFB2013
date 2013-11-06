@@ -35,16 +35,15 @@ UIAlertView * scoreTonesAlert;
 	label.backgroundColor = [UIColor clearColor];
 	label.font = [UIFont boldSystemFontOfSize:20.0];
 	label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-	label.textAlignment = UITextAlignmentCenter;
+	label.textAlignment = NSTextAlignmentCenter;
 	label.textColor = [UIColor yellowColor];
 	self.navigationItem.titleView = label;
 	label.text = NSLocalizedString(@"Settings",@"Settings");
 	[self setTitle:NSLocalizedString(@"Settings",@"Settings")];
 	
-	sectionArray1 = [[NSMutableArray alloc]initWithObjects:@"My Conference",@"My Team",@"Log out from ScoreTones",nil];
-	sectionArray12 = [[NSMutableArray alloc]initWithObjects:@"My Friends",@"Log out from Facebook",nil];
+	sectionArray1 = [[NSMutableArray alloc]initWithObjects:@"My Conference",@"My Team",nil];
 	
-	sectionArray2 = [[NSArray alloc] initWithObjects:@"Play start-up sound",@"Notify me with sound",@"Email me my taunts",nil];
+	sectionArray2 = [[NSArray alloc] initWithObjects:@"Play start-up sound",@"Notify me with sound",nil];
 
 	[settingsTblView setBackgroundColor:[UIColor clearColor]];
 	[[[self navigationController] navigationBar] setTintColor:[UIColor blackColor]];
@@ -62,13 +61,6 @@ UIAlertView * scoreTonesAlert;
 	}
 	else{
 		[[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"notifyWithSoundButton"];
-	}
-	
-	if([[NSUserDefaults standardUserDefaults] objectForKey:SEND_TAUNT_MESSAGE ] != nil) {
-		[[NSUserDefaults standardUserDefaults] setBool:[standardUserDefaults boolForKey:SEND_TAUNT_MESSAGE] forKey:SEND_TAUNT_MESSAGE];
-	}
-	else{
-		[[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:SEND_TAUNT_MESSAGE];
 	}
 }
 
@@ -118,7 +110,7 @@ UIAlertView * scoreTonesAlert;
 #pragma mark Table view methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 3;
 }
 
 
@@ -127,11 +119,11 @@ UIAlertView * scoreTonesAlert;
 	int totalRows = 1;
 	
     if(section == 0) {
-		totalRows = 3;
+		totalRows = [sectionArray1 count];
 	}
 
 	if(section == 1) {
-		totalRows = 2;
+		totalRows = [sectionArray12 count];
 	}
 	
 	return totalRows;
@@ -146,7 +138,6 @@ UIAlertView * scoreTonesAlert;
 	static NSString * cellIdentifier2 = @"CellSec2";
 	static NSString * cellIdentifier3 = @"CellSec3";
 	static NSString * cellIdentifier4 = @"CellSec4";
-	static NSString * cellIdentifier5 = @"CellSec5";
 	
 	SMTblCell *cell = nil;
 	LoginType initialLoginType;
@@ -242,61 +233,64 @@ UIAlertView * scoreTonesAlert;
 				[[cell cellLabel] setTextColor:[UIColor grayColor]];
 				[[cell cellOnOffSwitch] setEnabled:NO];
 			}
-			break;			
-			
-		case 4:
-			initialLoginType = [[[NSUserDefaults standardUserDefaults] objectForKey:LOGIN_TYPE] intValue];
-			isLoggedIn = [[[NSUserDefaults standardUserDefaults] objectForKey:INITAL_LOGIN] boolValue];
-			cell  = (SMTblCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier5];
-			if (cell == nil) {
-				cell = [[[SMTblCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier5] autorelease];
-			}
-			[cell createCellLabel:CGRectMake(9,6,280,32)];
-			[cell setLabelText:NSLocalizedString([sectionArray2 objectAtIndex:2],@"")];
-			[cell createCellSwitch:CGRectMake(200,8,94,27)];
-			BOOL emailMeMyTauntsOnOff = [[NSUserDefaults standardUserDefaults] boolForKey:SEND_TAUNT_MESSAGE];
-			[[cell cellOnOffSwitch] setOn:emailMeMyTauntsOnOff];
-			[[cell cellOnOffSwitch] addTarget:self action:@selector(emailMyTauntsAction:) forControlEvents:UIControlEventValueChanged];
-			[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-			
-			if( initialLoginType == kFacebookLogin || initialLoginType == kNoLogin || isLoggedIn == NO ) {
-				[[cell cellLabel] setTextColor:[UIColor grayColor]];
-				[[cell cellOnOffSwitch] setEnabled:NO];
-			}
 			break;
-		
-	}
+    }
+            // Commenting out taunt settings as per Patrick's request to drop taunt functionality 11-5-13
+			
+//		case 4:
+//			initialLoginType = [[[NSUserDefaults standardUserDefaults] objectForKey:LOGIN_TYPE] intValue];
+//			isLoggedIn = [[[NSUserDefaults standardUserDefaults] objectForKey:INITAL_LOGIN] boolValue];
+//			cell  = (SMTblCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier5];
+//			if (cell == nil) {
+//				cell = [[[SMTblCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier5] autorelease];
+//			}
+//			[cell createCellLabel:CGRectMake(9,6,280,32)];
+//			[cell setLabelText:NSLocalizedString([sectionArray2 objectAtIndex:2],@"")];
+//			[cell createCellSwitch:CGRectMake(200,8,94,27)];
+//			BOOL emailMeMyTauntsOnOff = [[NSUserDefaults standardUserDefaults] boolForKey:SEND_TAUNT_MESSAGE];
+//			[[cell cellOnOffSwitch] setOn:emailMeMyTauntsOnOff];
+//			[[cell cellOnOffSwitch] addTarget:self action:@selector(emailMyTauntsAction:) forControlEvents:UIControlEventValueChanged];
+//			[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+//			
+//			if( initialLoginType == kFacebookLogin || initialLoginType == kNoLogin || isLoggedIn == NO ) {
+//				[[cell cellLabel] setTextColor:[UIColor grayColor]];
+//				[[cell cellOnOffSwitch] setEnabled:NO];
+//			}
+//			break;
+//		
+//	}
 	
 	cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:5];
 	
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	
-	NSString *sectionHeader = nil;
-	
-	switch (section) {
-		case 0:
-			sectionHeader = @"";
-			break;
-		case 1:
-			sectionHeader = @"";
-			break;
-		case 2:
-			sectionHeader = @"";
-			break;
-
-		case 3:
-			sectionHeader = NSLocalizedString(@"Push Notifications",@"Push Notifications");
-			break;
-		case 4:
-			sectionHeader = NSLocalizedString(@"Email Notifications",@"Email Notifications");
-			break;
-			
-	}
-	return sectionHeader;
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//	
+//	NSString *sectionHeader = nil;
+//	
+//	switch (section) {
+//		case 0:
+//			sectionHeader = @"";
+//			break;
+//		case 1:
+//			sectionHeader = @"";
+//			break;
+//		case 2:
+//			sectionHeader = @"";
+//			break;
+//
+//		case 3:
+//			sectionHeader = NSLocalizedString(@"Push Notifications",@"Push Notifications");
+//			break;
+//            // commenting to remove taunt functionality as per Patrick's request of 11-5-13
+////		case 4:
+////			sectionHeader = NSLocalizedString(@"Email Notifications",@"Email Notifications");
+////			break;
+//			
+//	}
+//	return sectionHeader;
+//}
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -320,50 +314,50 @@ UIAlertView * scoreTonesAlert;
 				[self.navigationController pushViewController:objSMTeams animated:YES];
 				[objSMTeams release];
 				break;
-				
-			case 2:
-				if( scoreTonesEmail != NULL ) {
-					scoreTonesAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Log out from Scoretones",@"") message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"OK",@""),nil];
-					[scoreTonesAlert show];
-				}
-				break;
+				// part of comments to remove My Friends and Log out of facebook. Need new logout function to go with latest Facebook SDK
+//			case 2:
+//				if( scoreTonesEmail != NULL ) {
+//					scoreTonesAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Log out from Scoretones",@"") message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"OK",@""),nil];
+//					[scoreTonesAlert show];
+//				}
+//				break;
 		}
 		
 		[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	}
 	
-	if(indexPath.section == 1){
-		SMFriends* objSMFriends = nil;
-		
-		switch ([indexPath row]) {
-			case 0:
-				objSMFriends = [[SMFriends alloc] initWithNibName:@"SMFriends" bundle:[NSBundle mainBundle]];
-				[self.navigationController pushViewController:objSMFriends animated:YES];
-				[objSMFriends release];
-				break;
-				
-			case 1:
-				if([[SMUserData sharedInstance] fbSession].isConnected){
-					facebookAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Log out from Facebook",@"") message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"OK",@""),nil];
-					[facebookAlert show];
-				}
-				break;
-		}
-		[tableView deselectRowAtIndexPath:indexPath animated:YES];
-	}
+//	if(indexPath.section == 1){
+//		SMFriends* objSMFriends = nil;
+//		
+//		switch ([indexPath row]) {
+//			case 0:
+//				objSMFriends = [[SMFriends alloc] initWithNibName:@"SMFriends" bundle:[NSBundle mainBundle]];
+//				[self.navigationController pushViewController:objSMFriends animated:YES];
+//				[objSMFriends release];
+//				break;
+//				
+//			case 1:
+//				if([[SMUserData sharedInstance] fbSession].isConnected){
+//					facebookAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Log out from Facebook",@"") message:@"" delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel",@"Cancel") otherButtonTitles:NSLocalizedString(@"OK",@""),nil];
+//					[facebookAlert show];
+//				}
+//				break;
+//		}
+//		[tableView deselectRowAtIndexPath:indexPath animated:YES];
+//	}
 }
 
 #pragma mark -
 #pragma mark Button Actions
-- (IBAction) emailMyTauntsAction:(id)sender {
-	NSLog(@"dev test ::  emailMyTauntsAction");	
-	LoginType initialLoginType = [[[NSUserDefaults standardUserDefaults] objectForKey:LOGIN_TYPE] intValue];
-	if( initialLoginType == kScoretoneLogin ) {
-		UISwitch * onoffswitch = (UISwitch *)sender;
-		BOOL  value = [onoffswitch isOn];
-		[[NSUserDefaults standardUserDefaults] setBool:value forKey:SEND_TAUNT_MESSAGE];
-	}
-}
+//- (IBAction) emailMyTauntsAction:(id)sender {
+//	NSLog(@"dev test ::  emailMyTauntsAction");	
+//	LoginType initialLoginType = [[[NSUserDefaults standardUserDefaults] objectForKey:LOGIN_TYPE] intValue];
+//	if( initialLoginType == kScoretoneLogin ) {
+//		UISwitch * onoffswitch = (UISwitch *)sender;
+//		BOOL  value = [onoffswitch isOn];
+//		[[NSUserDefaults standardUserDefaults] setBool:value forKey:SEND_TAUNT_MESSAGE];
+//	}
+//}
 
 - (IBAction) soundNotificationOnOffAction:(id)sender {
 	NSLog(@"dev test ::  soundNotificationOnOffAction");
@@ -421,20 +415,20 @@ UIAlertView * scoreTonesAlert;
 
 
 #pragma mark UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-	if( alertView == scoreTonesAlert ) {
-		if( buttonIndex == 1 ){
-			[[SMUserData sharedInstance] logoutFrom:kScoretoneLogin];
-		}
-	}
-	else {
-		if( alertView == facebookAlert ) {
-			if( buttonIndex == 1 ){
-				[[SMUserData sharedInstance] logoutFrom:kFacebookLogin];
-			}
-		}
-	}
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+//	if( alertView == scoreTonesAlert ) {
+//		if( buttonIndex == 1 ){
+//			[[SMUserData sharedInstance] logoutFrom:kScoretoneLogin];
+//		}
+//	}
+//	else {
+//		if( alertView == facebookAlert ) {
+//			if( buttonIndex == 1 ){
+//				[[SMUserData sharedInstance] logoutFrom:kFacebookLogin];
+//			}
+//		}
+//	}
+//}
 
 - (void) userDidLogin:(NSNotification *)notification {	
 	[settingsTblView reloadData];
@@ -447,5 +441,5 @@ UIAlertView * scoreTonesAlert;
 }
 
 
-@end
 
+@end

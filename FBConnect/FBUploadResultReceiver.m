@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "FBConnect/FBUploadResultReceiver.h"
+#import "FBUploadResultReceiver.h"
 
 @implementation FBUploadResultReceiver
 

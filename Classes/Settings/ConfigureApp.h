@@ -10,18 +10,20 @@
 
 
 @interface ConfigureApp : NSObject {
-
+    NSString * conferenceName;
+    NSString * conferenceAbbr;
+    NSString * conferenceID;
+    NSString * subDivision1;
+    NSString * subDivision2;
+    
+    
+    NSString * applicationKey;
+    NSString * appSceretKey;
 }
 + (ConfigureApp *) sharedConfig ;
 
-NSString * applicationKey;
-NSString * appSceretKey;
 
-NSString * conferenceName;
-NSString * conferenceAbbr;
-NSString * conferenceID;
-NSString * subDivision1;
-NSString * subDivision2;
+
 
 
 

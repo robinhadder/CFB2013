@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#import "FBConnect/FBRequest.h"
+#import "FBRequest.h"
 
 /**
  * FBUploadResultReceiver is used internally to make it possible for
